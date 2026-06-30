@@ -10,7 +10,8 @@ const inter = Inter({
 });
 export default function Home() {
   return (
-    <div>
+    <div className="mt-5">
+       
       <h1 className={`${sora.className} font-medium`}>
         {" "}
         Ticketo - Event Ticket Booking & Management Platform

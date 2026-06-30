@@ -1,5 +1,6 @@
 import { Inter, Sora } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar/Navbar";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -22,7 +23,10 @@ export default function RootLayout({ children }) {
       data-theme="light"
       className={`${inter.variable} ${sora.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
