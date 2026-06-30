@@ -1,36 +1,206 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🎟️ Ticketo - Client
 
-## Getting Started
+A modern, responsive Event Ticket Booking & Management Platform built with **Next.js**. Ticketo allows attendees to discover and purchase event tickets, organizers to manage events and organizations, and admins to moderate the platform through dedicated dashboards.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌐 Live Demo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🔗 Live Site:  
+- 🔗 Server Repository:  
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📖 Project Overview
 
-## Learn More
+Ticketo is a full-stack event management platform that connects **Attendees**, **Organizers**, and **Admins** in a secure ecosystem.
 
-To learn more about Next.js, take a look at the following resources:
+Users can browse upcoming events, purchase tickets securely through Stripe, manage bookings, and view payment history. Organizers can create organizations, publish events, monitor sales, and upgrade to Premium for unlimited event creation. Admins oversee users, moderate events, and monitor platform analytics.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ✨ Key Features
 
-## Deploy on Vercel
+### 👤 Authentication
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Better Auth Authentication
+- Email & Password Login
+- Google Authentication
+- Persistent Sessions
+- Protected Routes
+- Role-Based Access Control
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+### 🎫 Event Browsing
+
+- Browse approved events
+- Search by title
+- Filter by category
+- Filter by location
+- Responsive event cards
+- Pagination
+
+---
+
+### 🎟 Ticket Booking
+
+- Event details page
+- Ticket quantity selection
+- Stripe Checkout
+- Booking confirmation
+- Booking history
+
+---
+
+### 🏢 Organizer Dashboard
+
+- Organization management
+- Create events
+- Update events
+- Delete events
+- Revenue overview
+- Booking management
+- Premium upgrade
+
+---
+
+### 🛡 Admin Dashboard
+
+- Platform overview
+- User management
+- Event moderation
+- Transaction history
+- Analytics dashboard
+
+---
+
+### 🎨 UI Features
+
+- Fully Responsive
+- Framer Motion Animations
+- Dark UI Design
+- Loading Skeletons
+- Toast Notifications
+- Modern Dashboard Layout
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+
+- Next.js
+- React
+- JavaScript
+- Tailwind CSS
+- Framer Motion
+- Better Auth
+- React Icons
+- React Hot Toast
+
+---
+
+## 📂 Folder Structure
+
+<!-- ```bash
+src
+│
+├── app
+├── components
+├── hooks
+├── providers
+├── services
+├── lib
+├── utils
+├── types
+├── constants
+├── assets
+└── middleware
+``` -->
+---
+
+## 👥 User Roles
+
+### 👤 Attendee
+
+- Browse Events
+- Search & Filter
+- Book Tickets
+- View Bookings
+- Payment History
+- Profile Management
+
+---
+
+### 🏢 Organizer
+
+- Create Organization
+- Manage Events
+- Track Revenue
+- View Bookings
+- Upgrade Premium
+
+---
+
+### 🛡 Admin
+
+- Manage Users
+- Moderate Events
+- View Transactions
+- Platform Analytics
+
+---
+
+## 🔐 Security
+
+- Better Auth Authentication
+- HTTP-only Cookies
+- Protected Routes
+- Middleware Authorization
+- Role-Based Access
+- Secure API Communication
+
+---
+
+## 📱 Responsive Design
+
+Supports:
+
+- Mobile
+- Tablet
+- Laptop
+- Desktop
+
+---
+
+## 📈 Future Improvements
+
+- Event Calendar
+- Wishlist/Favorites
+- Real-time Notifications
+- Analytics Charts
+- Event Reviews
+- QR Ticket Validation
+- Email Notifications
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to your branch
+5. Open a Pull Request
+
+---
+ 
+
+## 👨‍💻 Author
+
+**Amit Chandra Das**
+
+If you like this project, consider giving it a ⭐ on GitHub!
