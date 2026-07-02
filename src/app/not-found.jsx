@@ -1,5 +1,9 @@
 "use client";
-
+const metadata = {
+  title: "Not Found - Event Ticket Booking Platform",
+  description:
+    "The page you are looking for does not exist, may have been moved, or the event has already ended.",
+};
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Home, Ticket } from "lucide-react";

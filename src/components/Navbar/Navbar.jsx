@@ -3,9 +3,12 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@heroui/react";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-
+import Logo from "@/Assets/logo.png";
+import { ThemeToggle } from "./ThemeToggle";
+import { IoTicketOutline } from "react-icons/io5";
 const defaultItems = [
   { label: "Home", href: "/", isActive: true },
   { label: "Events", href: "/events" },
@@ -20,23 +23,33 @@ const maxWidthClasses = {
   "2xl": "max-w-[1536px]",
   full: "max-w-full",
 };
-
+const user = false;
 export default function Navbar({
   brand = (
-    <Link href={"/"}>
-      <div className="flex items-center gap-2">
-        <span className="text-2xl">🎟️</span>
-        <h1 className="text-xl font-bold">Ticketo</h1>
-      </div>
+    <Link
+      href={"/"}
+      className="flex items-center gap-1 text-xl text-blue-500 dark:text-blue-700 italic font-bold"
+    >
+      <IoTicketOutline />
+      <span>Ticketo</span>
     </Link>
   ),
   items = defaultItems,
   rightContent = (
     <>
-      <Link href="/login">Login</Link>
-      <Button color="primary" radius="full">
-        Get Started
-      </Button>
+      {user ? (
+        <Button color="primary" className="w-full">
+          Get Started
+        </Button>
+      ) : (
+        <Button className="w-full" variant="danger">
+          Logout
+        </Button>
+      )}
+      <div className="w-full">
+        {" "}
+        <ThemeToggle />
+      </div>
     </>
   ),
   className,
@@ -48,14 +61,14 @@ export default function Navbar({
   return (
     <nav
       className={cn(
-        "z-50 w-full",
+        "z-50 w-full px-2",
         position === "sticky" && "sticky top-2 ",
         position === "fixed" && "fixed top-4 left-0",
       )}
     >
       <header
         className={cn(
-          "mx-auto flex h-12 items-center justify-between rounded-2xl border border-white/20 bg-white/10 px-6 shadow-lg backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/40",
+          "mx-auto flex h-12 items-center overflow-hidden justify-between rounded-2xl border border-white/20 bg-white/10 px-6 shadow-lg backdrop-blur-xl dark:border-white/10 dark:bg-slate-900/40",
           maxWidthClasses[maxWidth],
           className,
         )}
