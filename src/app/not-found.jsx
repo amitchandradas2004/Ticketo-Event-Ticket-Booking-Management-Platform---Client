@@ -31,7 +31,7 @@ const item = {
 
 export default function NotFound() {
   return (
-    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-6 dark:bg-slate-950 py-5 lg:py-10">
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-6 dark:bg-slate-950">
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e7eb_1px,transparent_1px),linear-gradient(to_bottom,#e5e7eb_1px,transparent_1px)] bg-size-[50px_50px] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)]" />
 

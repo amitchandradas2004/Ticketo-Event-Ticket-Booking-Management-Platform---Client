@@ -3,12 +3,10 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@heroui/react";
 import { Menu, X } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import Logo from "@/Assets/logo.png";
-import { ThemeToggle } from "./ThemeToggle";
 import { IoTicketOutline } from "react-icons/io5";
+import { ThemeToggle } from "./ThemeToggle";
 const defaultItems = [
   { label: "Home", href: "/", isActive: true },
   { label: "Events", href: "/events" },
@@ -23,7 +21,7 @@ const maxWidthClasses = {
   "2xl": "max-w-[1536px]",
   full: "max-w-full",
 };
-const user = false;
+const user = true;
 export default function Navbar({
   brand = (
     <Link
@@ -38,9 +36,11 @@ export default function Navbar({
   rightContent = (
     <>
       {user ? (
-        <Button color="primary" className="w-full">
-          Get Started
-        </Button>
+        <Link href="/register">
+          <Button color="primary" className="w-full">
+            Get Started
+          </Button>
+        </Link>
       ) : (
         <Button className="w-full" variant="danger">
           Logout
