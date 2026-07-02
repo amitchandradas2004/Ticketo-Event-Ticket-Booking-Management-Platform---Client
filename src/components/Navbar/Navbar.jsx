@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { cn } from "@/lib/utils";
 import { Button } from "@heroui/react";
 import { Menu, X } from "lucide-react";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { useState } from "react";
 
 const defaultItems = [
   { label: "Home", href: "/", isActive: true },
