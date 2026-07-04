@@ -30,7 +30,7 @@ const dot = {
 
 export default function Loading() {
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white dark:bg-slate-950">
+    <div className="fixed inset-0 z-9999 flex items-center justify-center bg-white dark:bg-slate-950">
       <div className="flex flex-col items-center gap-8">
         {/* Ticket Animation */}
         <div className="relative">
@@ -45,7 +45,7 @@ export default function Loading() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="absolute inset-0 rounded-full bg-blue-500 blur-3xl"
+            className="absolute inset-0 rounded-full bg-indigo-500 blur-3xl"
           />
 
           {/* Rotating Ring */}
@@ -56,7 +56,7 @@ export default function Loading() {
               repeat: Infinity,
               ease: "linear",
             }}
-            className="absolute -inset-6 h-24 w-24 rounded-full border-2 border-dashed border-blue-500/40"
+            className="absolute -inset-6 h-24 w-24 rounded-full border-2 border-dashed border-indigo-500/40"
           />
 
           {/* Floating Ticket */}
@@ -70,7 +70,7 @@ export default function Loading() {
               repeat: Infinity,
               ease: "easeInOut",
             }}
-            className="relative flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-br from-blue-600 to-cyan-500 shadow-2xl"
+            className="relative flex h-20 w-20 items-center justify-center rounded-3xl bg-linear-to-br from-indigo-600 to-cyan-500 shadow-2xl"
           >
             <Ticket className="h-10 w-10 text-white" />
           </motion.div>
@@ -107,7 +107,7 @@ export default function Loading() {
             <motion.div
               key={item}
               variants={dot}
-              className="h-3 w-3 rounded-full bg-blue-500"
+              className="h-3 w-3 rounded-full bg-indigo-500"
             />
           ))}
         </motion.div>

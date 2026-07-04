@@ -46,7 +46,7 @@ export default function NotFound() {
           duration: 8,
           repeat: Infinity,
         }}
-        className="absolute left-10 top-10 h-64 w-64 rounded-full bg-blue-500/10"
+        className="absolute left-10 top-10 h-64 w-64 rounded-full bg-indigo-500/10"
       />
 
       <motion.div
@@ -59,7 +59,7 @@ export default function NotFound() {
           duration: 10,
           repeat: Infinity,
         }}
-        className="absolute bottom-10 right-10 h-72 w-72 rounded-full bg-cyan-500/10"
+        className="absolute bottom-10 right-10 h-72 w-72 rounded-full bg-indigo-500/10"
       />
 
       <motion.div
@@ -81,7 +81,7 @@ export default function NotFound() {
           }}
           className="mb-10"
         >
-          <div className="flex h-28 w-28 items-center justify-center rounded-3xl bg-blue-600 shadow-2xl shadow-blue-500/30">
+          <div className="flex h-28 w-28 items-center justify-center rounded-3xl bg-indigo-600 shadow-2xl shadow-indigo-500/30">
             <Ticket className="h-14 w-14 text-white" />
           </div>
         </motion.div>
@@ -89,7 +89,7 @@ export default function NotFound() {
         {/* 404 */}
         <motion.h1
           variants={item}
-          className="text-8xl font-black tracking-tight text-blue-600 md:text-9xl"
+          className="text-8xl font-black tracking-tight text-indigo-600 md:text-9xl"
         >
           404
         </motion.h1>
@@ -115,7 +115,7 @@ export default function NotFound() {
         <motion.div variants={item} className="mt-10">
           <Link
             href="/"
-            className="inline-flex items-center gap-3 rounded-xl bg-blue-600 px-7 py-4 text-white font-semibold transition-all duration-300 hover:scale-105 hover:bg-blue-700 active:scale-95"
+            className="inline-flex items-center gap-3 rounded-xl bg-indigo-600 px-7 py-4 text-white font-semibold transition-all duration-300 hover:scale-105 hover:bg-indigo-700 active:scale-95"
           >
             <Home size={20} />
             Back Home

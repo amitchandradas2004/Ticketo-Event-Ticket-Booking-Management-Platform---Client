@@ -23,13 +23,6 @@ const maxWidthClasses = {
 };
 const user = false;
 export default function Navbar({
-  // <Link
-  //   href={"/"}
-  //   className="flex items-center gap-1 text-xl text-blue-500 dark:text-blue-700 italic font-bold"
-  // >
-  //   <IoTicketOutline />
-  //   <span>Ticketo</span>
-  // </Link>
   brand = (
     <Link href="/" className="flex items-center gap-3">
       <motion.div
@@ -49,14 +42,30 @@ export default function Navbar({
     <>
       {user ? (
         <Link href="/register">
-          <Button className="w-full bg-[#4F39F6] hover:bg-[#3f2bd4] shadow-md shadow-indigo-500/30">
+          <motion.button
+            whileHover={{
+              scale: 1.02,
+            }}
+            whileTap={{
+              scale: 0.96,
+            }}
+            className="w-30 h-10 rounded-full bg-indigo-600 hover:bg-indigo-700 shadow-md shadow-indigo-500/30"
+          >
             Get Started
-          </Button>
+          </motion.button>
         </Link>
       ) : (
-        <Button className="w-full shadow-md shadow-red-500/30" variant="danger">
+        <motion.button
+          whileHover={{
+            scale: 1.02,
+          }}
+          whileTap={{
+            scale: 0.96,
+          }}
+          className="rounded-full w-40 h-9 font-medium bg-red-500 hover:bg-red-600  dark:text-black  shadow-md shadow-red-500/30"
+        >
           Logout
-        </Button>
+        </motion.button>
       )}
       <div className="w-full">
         {" "}
