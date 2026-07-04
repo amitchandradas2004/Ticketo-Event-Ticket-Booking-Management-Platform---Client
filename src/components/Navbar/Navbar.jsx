@@ -2,16 +2,16 @@
 
 import { cn } from "@/lib/utils";
 import { Button } from "@heroui/react";
-import { Menu, X } from "lucide-react";
+import { Menu, Ticket, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
-import { IoTicketOutline } from "react-icons/io5";
 import { ThemeToggle } from "./ThemeToggle";
 const defaultItems = [
   { label: "Home", href: "/", isActive: true },
   { label: "Events", href: "/events" },
   { label: "Pricing", href: "/pricing" },
 ];
+import { motion } from "framer-motion";
 
 const maxWidthClasses = {
   sm: "max-w-[640px]",
@@ -21,15 +21,27 @@ const maxWidthClasses = {
   "2xl": "max-w-[1536px]",
   full: "max-w-full",
 };
-const user = true;
+const user = false;
 export default function Navbar({
+  // <Link
+  //   href={"/"}
+  //   className="flex items-center gap-1 text-xl text-blue-500 dark:text-blue-700 italic font-bold"
+  // >
+  //   <IoTicketOutline />
+  //   <span>Ticketo</span>
+  // </Link>
   brand = (
-    <Link
-      href={"/"}
-      className="flex items-center gap-1 text-xl text-blue-500 dark:text-blue-700 italic font-bold"
-    >
-      <IoTicketOutline />
-      <span>Ticketo</span>
+    <Link href="/" className="flex items-center gap-3">
+      <motion.div
+        whileHover={{
+          rotate: 12,
+          scale: 1.1,
+        }}
+        className="rounded-xl bg-indigo-600 p-2 text-white shadow-lg shadow-indigo-500/30"
+      >
+        <Ticket size={20} />
+      </motion.div>
+      <span className="text-2xl font-bold tracking-tight">Ticketo</span>
     </Link>
   ),
   items = defaultItems,
@@ -37,12 +49,12 @@ export default function Navbar({
     <>
       {user ? (
         <Link href="/register">
-          <Button color="primary" className="w-full">
+          <Button className="w-full bg-[#4F39F6] hover:bg-[#3f2bd4] shadow-md shadow-indigo-500/30">
             Get Started
           </Button>
         </Link>
       ) : (
-        <Button className="w-full" variant="danger">
+        <Button className="w-full shadow-md shadow-red-500/30" variant="danger">
           Logout
         </Button>
       )}
