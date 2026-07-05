@@ -60,23 +60,25 @@ function FAQItem({ faq, isOpen, onClick }) {
   return (
     <motion.div
       variants={itemVariants}
-      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl transition-colors duration-300 hover:border-white/20"
+      className="group relative overflow-hidden rounded-xl sm:rounded-2xl border border-gray-200 bg-white/70 backdrop-blur-xl transition-colors duration-300 hover:border-gray-300 dark:border-white/10 dark:bg-white/5 dark:hover:border-white/20"
     >
       {/* subtle gradient wash, brighter when open */}
       <div
-        className={`pointer-events-none absolute inset-0 bg-gradient-to-r from-fuchsia-500/10 via-violet-500/10 to-cyan-400/10 transition-opacity duration-500 ${
+        className={`pointer-events-none absolute inset-0 bg-linear-to-r from-fuchsia-500/5 via-violet-500/5 to-cyan-400/5 transition-opacity duration-500 dark:from-fuchsia-500/10 dark:via-violet-500/10 dark:to-cyan-400/10 ${
           isOpen ? "opacity-100" : "opacity-0 group-hover:opacity-60"
         }`}
       />
 
       <button
         onClick={onClick}
-        className="relative flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+        className="relative flex w-full items-center justify-between gap-3 px-4 py-4 text-left sm:gap-4 sm:px-6 sm:py-5"
         aria-expanded={isOpen}
       >
         <span
-          className={`text-base font-medium transition-colors duration-300 sm:text-lg ${
-            isOpen ? "text-white" : "text-white/85"
+          className={`text-sm font-medium transition-colors duration-300 sm:text-base md:text-lg ${
+            isOpen
+              ? "text-gray-900 dark:text-white"
+              : "text-gray-600 dark:text-white/85"
           }`}
         >
           {faq.question}
@@ -85,13 +87,14 @@ function FAQItem({ faq, isOpen, onClick }) {
         <motion.span
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 ${
+          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 sm:h-8 sm:w-8 ${
             isOpen
-              ? "border-fuchsia-400/40 bg-fuchsia-400/10 text-fuchsia-300"
-              : "border-white/15 bg-white/5 text-white/60"
+              ? "border-fuchsia-400/40 bg-fuchsia-400/10 text-fuchsia-500 dark:text-fuchsia-300"
+              : "border-gray-300 bg-gray-100 text-gray-500 dark:border-white/15 dark:bg-white/5 dark:text-white/60"
           }`}
         >
-          <Plus size={16} strokeWidth={2.5} />
+          <Plus size={14} strokeWidth={2.5} className="sm:hidden" />
+          <Plus size={16} strokeWidth={2.5} className="hidden sm:block" />
         </motion.span>
       </button>
 
@@ -105,7 +108,7 @@ function FAQItem({ faq, isOpen, onClick }) {
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="relative overflow-hidden"
           >
-            <div className="px-6 pb-5 text-sm leading-relaxed text-white/60 sm:text-[15px]">
+            <div className="px-4 pb-4 text-sm leading-relaxed text-gray-500 sm:px-6 sm:pb-5 sm:text-[15px] dark:text-white/60">
               {faq.answer}
             </div>
           </motion.div>
@@ -123,10 +126,10 @@ export default function Frequently() {
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-[#0b0b12] px-4 py-24 sm:px-6">
+    <section className="relative w-full overflow-hidden bg-white px-4 py-16 sm:px-6 sm:py-20 md:py-24 dark:bg-[#0b0b12]">
       {/* ambient background glow, consistent with Ticketo's hero */}
-      <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-fuchsia-600/20 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-[400px] w-[400px] translate-x-1/3 translate-y-1/3 rounded-full bg-cyan-500/10 blur-[100px]" />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-60 -translate-x-1/2 -translate-y-1/3 rounded-full bg-slate-600/10 blur-[80px] sm:h-80 sm:w-125 sm:blur-[100px] md:h-125 md:w-175 md:blur-[120px] dark:bg-slate-600/20" />
+      <div className="pointer-events-none absolute bottom-0 right-0 h-32 w-32 translate-x-1/3 translate-y-1/3 rounded-full bg-cyan-500/5 blur-[60px] sm:h-64 sm:w-64 sm:blur-[80px] md:h-100 md:w-100 md:blur-[100px] dark:bg-cyan-500/10" />
 
       <div className="relative mx-auto max-w-3xl">
         <motion.div
@@ -134,18 +137,18 @@ export default function Frequently() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-14 text-center"
+          className="mb-10 text-center sm:mb-14"
         >
-          <span className="mb-3 inline-block rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-medium uppercase tracking-wider text-white/50 backdrop-blur-md">
+          <span className="mb-3 inline-block rounded-full border border-gray-200 bg-gray-50 px-4 py-1 text-xs font-medium uppercase tracking-wider text-gray-500 backdrop-blur-md dark:border-white/10 dark:bg-white/5 dark:text-white/50">
             FAQ
           </span>
-          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+          <h2 className="text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl md:text-4xl dark:text-white">
             Got questions?{" "}
-            <span className="bg-gradient-to-r from-fuchsia-400 via-violet-300 to-cyan-300 bg-clip-text text-transparent">
-              We've got answers.
+            <span className="bg-linear-to-r from-slate-800 via-slate-900 to-cyan-500 bg-clip-text text-transparent dark:from-slate-400 dark:via-violet-300 dark:to-cyan-300">
+              We have got answers.
             </span>
           </h2>
-          <p className="mx-auto mt-3 max-w-md text-sm text-white/50 sm:text-base">
+          <p className="mx-auto mt-3 max-w-md text-sm text-gray-500 sm:text-base dark:text-white/50">
             Everything you need to know about booking, refunds, and getting into
             your next event with Ticketo.
           </p>
@@ -156,7 +159,7 @@ export default function Frequently() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="flex flex-col gap-4"
+          className="flex flex-col gap-3 sm:gap-4"
         >
           {faqs.map((faq, index) => (
             <FAQItem
