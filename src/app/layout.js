@@ -11,7 +11,6 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
-
 export const metadata = {
   title: "Ticketo - Event Ticket Booking Platform",
   description: "Book tickets for your favorite events with Ticketo",

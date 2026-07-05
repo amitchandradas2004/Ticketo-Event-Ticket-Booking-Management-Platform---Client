@@ -1,3 +1,4 @@
+import Frequently from "@/components/Additionals/Frequently";
 import { Inter, Sora } from "next/font/google";
 
 const sora = Sora({
@@ -15,6 +16,7 @@ export default function Home() {
         {" "}
         Ticketo - Event Ticket Booking & Management Platform
       </h1>
+      <Frequently />
     </div>
   );
 }

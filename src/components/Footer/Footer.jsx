@@ -8,7 +8,6 @@ import { BsInstagram, BsTwitter } from "react-icons/bs";
 import { LiaLinkedin } from "react-icons/lia";
 import { GiThunderBlade } from "react-icons/gi";
 import { Send, Ticket } from "lucide-react";
-
 const footerLinks = {
   Product: ["Browse Events", "Create Event", "Pricing", "Features"],
   Company: ["About", "Blog", "Careers", "Contact"],
@@ -85,7 +84,7 @@ export default function Footer() {
                   href={href}
                   whileHover={{
                     y: -5,
-                    scale: 1.12,
+                    scale: 1.15,
                   }}
                   whileTap={{ scale: 0.95 }}
                   className="rounded-xl border border-slate-300 bg-white p-3 text-slate-600 transition-colors hover:border-indigo-500 hover:text-indigo-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-indigo-500 dark:hover:text-indigo-400"
@@ -157,12 +156,12 @@ export default function Footer() {
               </p>
 
               <div className="mt-6 space-y-4">
+                {" "}
                 <input
                   type="email"
                   placeholder="Your email"
                   className="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 outline-none transition focus:border-indigo-500 dark:border-slate-700 dark:bg-slate-950"
                 />
-
                 <motion.button
                   whileHover={{
                     scale: 1.02,

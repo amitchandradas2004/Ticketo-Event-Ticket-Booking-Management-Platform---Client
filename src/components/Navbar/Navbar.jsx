@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@heroui/react";
+import { motion } from "framer-motion";
 import { Menu, Ticket, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
@@ -11,7 +11,6 @@ const defaultItems = [
   { label: "Events", href: "/events" },
   { label: "Pricing", href: "/pricing" },
 ];
-import { motion } from "framer-motion";
 
 const maxWidthClasses = {
   sm: "max-w-[640px]",
@@ -21,7 +20,7 @@ const maxWidthClasses = {
   "2xl": "max-w-[1536px]",
   full: "max-w-full",
 };
-const user = false;
+const user = true;
 export default function Navbar({
   brand = (
     <Link href="/" className="flex items-center gap-3">
@@ -49,7 +48,7 @@ export default function Navbar({
             whileTap={{
               scale: 0.96,
             }}
-            className="w-30 h-10 rounded-full bg-indigo-600 hover:bg-indigo-700 shadow-md shadow-indigo-500/30"
+            className="w-30 h-9 rounded-full bg-indigo-600 hover:bg-indigo-700 shadow-md shadow-indigo-500/30 text-white"
           >
             Get Started
           </motion.button>
@@ -62,13 +61,12 @@ export default function Navbar({
           whileTap={{
             scale: 0.96,
           }}
-          className="rounded-full w-40 h-9 font-medium bg-red-500 hover:bg-red-600  dark:text-black  shadow-md shadow-red-500/30"
+          className="rounded-full w-20 h-9 font-medium bg-red-500 hover:bg-red-600  text-white  shadow-md shadow-red-500/30"
         >
           Logout
         </motion.button>
       )}
-      <div className="w-full">
-        {" "}
+      <div>
         <ThemeToggle />
       </div>
     </>
@@ -157,7 +155,6 @@ export default function Navbar({
               </li>
             ))}
           </ul>
-
           <div className="mt-6 flex flex-col gap-3 border-t border-default-200 pt-5">
             {rightContent}
           </div>
