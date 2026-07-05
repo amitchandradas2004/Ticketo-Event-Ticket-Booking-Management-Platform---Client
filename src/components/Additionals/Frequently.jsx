@@ -64,7 +64,7 @@ function FAQItem({ faq, isOpen, onClick }) {
     >
       {/* subtle gradient wash, brighter when open */}
       <div
-        className={`pointer-events-none absolute inset-0 bg-linear-to-r from-fuchsia-500/5 via-violet-500/5 to-cyan-400/5 transition-opacity duration-500 dark:from-fuchsia-500/10 dark:via-violet-500/10 dark:to-cyan-400/10 ${
+        className={`pointer-events-none absolute inset-0 bg-linear-to-r from-indigo-500/5 via-slate-400/5 to-slate-300/5 transition-opacity duration-500 dark:from-indigo-500/10 dark:via-slate-400/10 dark:to-slate-300/10 ${
           isOpen ? "opacity-100" : "opacity-0 group-hover:opacity-60"
         }`}
       />
@@ -89,7 +89,7 @@ function FAQItem({ faq, isOpen, onClick }) {
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 sm:h-8 sm:w-8 ${
             isOpen
-              ? "border-fuchsia-400/40 bg-fuchsia-400/10 text-fuchsia-500 dark:text-fuchsia-300"
+              ? "border-indigo-400/40 bg-indigo-400/10 text-indigo-500 dark:text-indigo-300"
               : "border-gray-300 bg-gray-100 text-gray-500 dark:border-white/15 dark:bg-white/5 dark:text-white/60"
           }`}
         >
@@ -128,8 +128,8 @@ export default function Frequently() {
   return (
     <section className="relative w-full overflow-hidden bg-white px-4 py-16 sm:px-6 sm:py-20 md:py-24 dark:bg-[#0b0b12]">
       {/* ambient background glow, consistent with Ticketo's hero */}
-      <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-60 -translate-x-1/2 -translate-y-1/3 rounded-full bg-slate-600/10 blur-[80px] sm:h-80 sm:w-125 sm:blur-[100px] md:h-125 md:w-175 md:blur-[120px] dark:bg-slate-600/20" />
-      <div className="pointer-events-none absolute bottom-0 right-0 h-32 w-32 translate-x-1/3 translate-y-1/3 rounded-full bg-cyan-500/5 blur-[60px] sm:h-64 sm:w-64 sm:blur-[80px] md:h-100 md:w-100 md:blur-[100px] dark:bg-cyan-500/10" />
+      <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-60 -translate-x-1/2 -translate-y-1/3 rounded-full bg-indigo-600/10 blur-[80px] sm:h-80 sm:w-125 sm:blur-[100px] md:h-125 md:w-175 md:blur-[120px] dark:bg-indigo-600/20" />
+      <div className="pointer-events-none absolute bottom-0 right-0 h-32 w-32 translate-x-1/3 translate-y-1/3 rounded-full bg-slate-500/5 blur-[60px] sm:h-64 sm:w-64 sm:blur-[80px] md:h-100 md:w-100 md:blur-[100px] dark:bg-slate-500/10" />
 
       <div className="relative mx-auto max-w-3xl">
         <motion.div
@@ -144,7 +144,7 @@ export default function Frequently() {
           </span>
           <h2 className="text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl md:text-4xl dark:text-white">
             Got questions?{" "}
-            <span className="bg-linear-to-r from-slate-800 via-slate-900 to-cyan-500 bg-clip-text text-transparent dark:from-slate-400 dark:via-violet-300 dark:to-cyan-300">
+            <span className="bg-linear-to-r from-indigo-600 via-indigo-500 to-slate-400 bg-clip-text text-transparent dark:from-indigo-400 dark:via-indigo-300 dark:to-slate-300">
               We have got answers.
             </span>
           </h2>
