@@ -10,7 +10,6 @@ import {
   Select,
   TextField,
 } from "@heroui/react";
-
 import { motion } from "framer-motion";
 import { Eye } from "lucide-react";
 import Link from "next/link";
@@ -87,7 +86,7 @@ export default function SignUpPage() {
       variants={container}
       className="min-h-screen flex items-center justify-center px-4
       bg-linear-to-br from-slate-100 via-indigo-100 to-purple-200
-      dark:from-slate-950 dark:via-slate-900 dark:to-black py-10"
+      dark:from-slate-950 dark:via-slate-900 dark:to-black py-20"
     >
       {/* CARD */}
       <motion.div

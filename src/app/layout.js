@@ -1,8 +1,8 @@
+import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar/Navbar";
 import { Inter, Sora } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import Footer from "@/components/Footer/Footer";
 const sora = Sora({
   variable: "--font-sora",
   subsets: ["latin"],

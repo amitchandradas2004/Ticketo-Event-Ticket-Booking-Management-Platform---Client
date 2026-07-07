@@ -72,11 +72,11 @@ function StarRating({ rating }) {
           key={i}
           size={14}
           strokeWidth={0}
-          className={
+          className={`transition-colors duration-500 ${
             i < rating
-              ? "fill-indigo-500 text-indigo-500 dark:fill-indigo-300 dark:text-indigo-300"
-              : "fill-gray-200 text-gray-200 dark:fill-white/15 dark:text-white/15"
-          }
+              ? "fill-indigo-500 text-indigo-500 dark:fill-indigo-400 dark:text-indigo-400"
+              : "fill-slate-200 text-slate-200 dark:fill-slate-700 dark:text-slate-700"
+          }`}
         />
       ))}
     </div>
@@ -96,16 +96,17 @@ function TestimonialCard() {
 
   return (
     <div className="relative mx-auto w-full max-w-2xl">
-      <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white/70 px-6 py-8 backdrop-blur-xl sm:rounded-3xl sm:px-10 sm:py-10 dark:border-white/10 dark:bg-white/5">
+      <div className="relative overflow-hidden rounded-2xl border border-indigo-100 bg-white/60 px-6 py-8 backdrop-blur-xl sm:rounded-3xl sm:px-10 sm:py-10 dark:border-indigo-500/20 dark:bg-slate-800/40 transition-colors duration-500 shadow-xl shadow-slate-200/50 dark:shadow-none">
+        {/* Subtle inner linear mesh */}
         <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-indigo-500/5 via-slate-400/5 to-slate-300/5 dark:from-indigo-500/10 dark:via-slate-400/10 dark:to-slate-300/10" />
 
         <Quote
           size={32}
           strokeWidth={1.5}
-          className="relative text-indigo-500/40 dark:text-indigo-300/40"
+          className="relative text-indigo-300 dark:text-indigo-500/40 transition-colors duration-500"
         />
 
-        <div className="relative min-h-[9rem] sm:min-h-[7rem]">
+        <div className="relative min-h-40 sm:min-h-32">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={index}
@@ -115,22 +116,22 @@ function TestimonialCard() {
               exit={{ opacity: 0, x: direction > 0 ? -24 : 24 }}
               transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
-              <p className="mt-3 text-sm leading-relaxed text-gray-700 sm:text-base sm:leading-relaxed dark:text-white/80">
+              <p className="mt-4 text-sm leading-relaxed text-slate-700 sm:text-base sm:leading-relaxed dark:text-slate-200 transition-colors duration-500">
                 {current.quote}
               </p>
 
               <div className="mt-6 flex items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-indigo-500 to-slate-400 text-sm font-semibold text-white">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-indigo-600 to-slate-500 text-sm font-semibold text-white shadow-md">
                   {current.name
                     .split(" ")
                     .map((n) => n[0])
                     .join("")}
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-gray-900 dark:text-white">
+                  <p className="text-sm font-semibold text-slate-900 dark:text-white transition-colors duration-500">
                     {current.name}
                   </p>
-                  <p className="text-xs text-gray-500 dark:text-white/50">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 transition-colors duration-500">
                     {current.role}
                   </p>
                 </div>
@@ -138,7 +139,7 @@ function TestimonialCard() {
                   <StarRating rating={current.rating} />
                 </div>
               </div>
-              <div className="mt-3 sm:hidden">
+              <div className="mt-4 sm:hidden">
                 <StarRating rating={current.rating} />
               </div>
             </motion.div>
@@ -146,17 +147,17 @@ function TestimonialCard() {
         </div>
       </div>
 
-      {/* controls */}
-      <div className="mt-6 flex items-center justify-center gap-4">
+      {/* Controls */}
+      <div className="mt-8 flex items-center justify-center gap-4">
         <button
           onClick={() => goTo(index - 1, -1)}
           aria-label="Previous testimonial"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500 transition-colors hover:border-gray-300 hover:text-gray-900 dark:border-white/10 dark:bg-white/5 dark:text-white/60 dark:hover:border-white/20 dark:hover:text-white"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-indigo-100 bg-white text-slate-500 shadow-sm transition-all hover:border-indigo-300 hover:text-indigo-600 dark:border-indigo-500/30 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-indigo-400 dark:hover:text-indigo-300 active:scale-95"
         >
-          <ChevronLeft size={16} />
+          <ChevronLeft size={18} />
         </button>
 
-        <div className="flex gap-1.5">
+        <div className="flex gap-2">
           {testimonials.map((_, i) => (
             <button
               key={i}
@@ -164,8 +165,8 @@ function TestimonialCard() {
               aria-label={`Go to testimonial ${i + 1}`}
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 i === index
-                  ? "w-6 bg-indigo-500 dark:bg-indigo-300"
-                  : "w-1.5 bg-gray-300 dark:bg-white/20"
+                  ? "w-8 bg-indigo-600 dark:bg-indigo-400"
+                  : "w-2 bg-indigo-200 dark:bg-slate-600 hover:bg-indigo-300 dark:hover:bg-slate-500"
               }`}
             />
           ))}
@@ -174,9 +175,9 @@ function TestimonialCard() {
         <button
           onClick={() => goTo(index + 1, 1)}
           aria-label="Next testimonial"
-          className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-500 transition-colors hover:border-gray-300 hover:text-gray-900 dark:border-white/10 dark:bg-white/5 dark:text-white/60 dark:hover:border-white/20 dark:hover:text-white"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-indigo-100 bg-white text-slate-500 shadow-sm transition-all hover:border-indigo-300 hover:text-indigo-600 dark:border-indigo-500/30 dark:bg-slate-800 dark:text-slate-400 dark:hover:border-indigo-400 dark:hover:text-indigo-300 active:scale-95"
         >
-          <ChevronRight size={16} />
+          <ChevronRight size={18} />
         </button>
       </div>
     </div>
@@ -185,9 +186,10 @@ function TestimonialCard() {
 
 export default function TrustAndProof() {
   return (
-    <section className="relative w-full overflow-hidden bg-white px-4 py-16 sm:px-6 sm:py-20 md:py-24 dark:bg-[#0b0b12]">
-      {/* ambient background glow, consistent with rest of the page */}
-      <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-60 -translate-x-1/2 -translate-y-1/3 rounded-full bg-indigo-600/10 blur-[80px] sm:h-80 sm:w-125 sm:blur-[100px] md:h-125 md:w-175 md:blur-[120px] dark:bg-indigo-600/20" />
+    <section className="relative w-full overflow-hidden bg-linear-to-br from-indigo-50 to-slate-100 dark:from-indigo-950 dark:to-slate-900 px-4 py-16 sm:px-6 sm:py-20 md:py-24 transition-colors duration-500">
+      {/* Ambient background glow */}
+      <div className="pointer-events-none absolute left-1/2 top-0 h-40 w-60 -translate-x-1/2 -translate-y-1/3 rounded-full bg-indigo-300/40 blur-[80px] sm:h-80 sm:w-125 sm:blur-[100px] md:h-125 md:w-175 md:blur-[120px] dark:bg-indigo-600/20" />
+      <div className="pointer-events-none absolute right-0 bottom-0 h-40 w-60 translate-x-1/3 translate-y-1/3 rounded-full bg-slate-400/30 blur-[80px] sm:h-80 sm:w-125 sm:blur-[100px] md:h-125 md:w-175 md:blur-[120px] dark:bg-slate-700/20" />
 
       <div className="relative mx-auto max-w-5xl">
         <motion.div
@@ -197,21 +199,21 @@ export default function TrustAndProof() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-12 text-center sm:mb-16"
         >
-          <span className="mb-3 inline-block rounded-full border border-gray-200 bg-gray-50 px-4 py-1 text-xs font-medium uppercase tracking-wider text-gray-500 backdrop-blur-md dark:border-white/10 dark:bg-white/5 dark:text-white/50">
+          <span className="mb-3 inline-block rounded-full border border-indigo-200 bg-indigo-100/50 px-4 py-1 text-xs font-medium uppercase tracking-wider text-indigo-700 backdrop-blur-md dark:border-indigo-500/20 dark:bg-indigo-900/30 dark:text-indigo-300 transition-colors duration-500">
             Trusted by thousands
           </span>
-          <h2 className="text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl md:text-4xl dark:text-white">
+          <h2 className="text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl md:text-4xl dark:text-white transition-colors duration-500">
             Do not just take{" "}
-            <span className="bg-linear-to-r from-indigo-600 via-indigo-500 to-slate-400 bg-clip-text text-transparent dark:from-indigo-400 dark:via-indigo-300 dark:to-slate-300">
+            <span className="bg-linear-to-r from-indigo-600 via-indigo-500 to-slate-500 bg-clip-text text-transparent dark:from-indigo-400 dark:via-indigo-300 dark:to-slate-300">
               our word for it.
             </span>
           </h2>
-          <p className="mx-auto mt-3 max-w-md text-sm text-gray-500 sm:text-base dark:text-white/50">
+          <p className="mx-auto mt-3 max-w-md text-sm text-slate-600 sm:text-base dark:text-slate-300/70 transition-colors duration-500">
             Real feedback from real attendees who booked through Ticketo.
           </p>
         </motion.div>
 
-        {/* testimonial carousel */}
+        {/* Testimonial carousel */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -221,29 +223,29 @@ export default function TrustAndProof() {
           <TestimonialCard />
         </motion.div>
 
-        {/* trusted-by partner strip */}
+        {/* Trusted-by partner strip */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
-          className="mt-16 sm:mt-20"
+          className="mt-20 sm:mt-24"
         >
           <motion.p
             variants={itemVariants}
-            className="mb-6 text-center text-xs font-medium uppercase tracking-wider text-gray-400 sm:mb-8 dark:text-white/40"
+            className="mb-6 text-center text-xs font-semibold uppercase tracking-wider text-slate-500 sm:mb-8 dark:text-slate-400 transition-colors duration-500"
           >
             Venues & partners who trust Ticketo
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 sm:gap-x-12"
+            className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6 sm:gap-x-12"
           >
             {partners.map((partner) => (
               <span
                 key={partner}
-                className="text-sm font-semibold tracking-tight text-gray-400 transition-colors duration-300 hover:text-gray-600 sm:text-base dark:text-white/30 dark:hover:text-white/60"
+                className="text-sm font-semibold tracking-tight text-slate-400 transition-colors duration-300 hover:text-indigo-600 sm:text-base dark:text-slate-500 dark:hover:text-indigo-300 cursor-default"
               >
                 {partner}
               </span>

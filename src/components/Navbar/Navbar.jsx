@@ -73,7 +73,7 @@ export default function Navbar({
   ),
   className,
   maxWidth = "xl",
-  position = "sticky",
+  position = "fixed",
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -81,7 +81,7 @@ export default function Navbar({
     <nav
       className={cn(
         "z-50 w-full px-2",
-        position === "sticky" && "sticky top-2 ",
+        position === "fixed" && "fixed top-2 ",
         position === "fixed" && "fixed top-4 left-0",
       )}
     >
