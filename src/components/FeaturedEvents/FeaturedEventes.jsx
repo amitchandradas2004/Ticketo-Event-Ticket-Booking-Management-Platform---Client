@@ -71,27 +71,27 @@ const cardVariants = {
 
 export default function FeaturedEvents() {
   return (
-    <section className="relative w-full overflow-hidden bg-slate-950 py-24 px-6">
+    <section className="relative w-full overflow-hidden bg-indigo-100 py-16 px-4 transition-colors duration-300 dark:bg-[#0B0F2E] sm:py-24 sm:px-6">
       {/* Ambient glow circles */}
-      <div className="pointer-events-none absolute -top-32 -left-32 h-96 w-96 rounded-full bg-indigo-600/20 blur-[120px]" />
-      <div className="pointer-events-none absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-indigo-500/20 blur-[120px]" />
+      <div className="pointer-events-none absolute -top-32 -left-32 h-72 w-72 rounded-full bg-indigo-400/10 blur-[100px] dark:bg-indigo-600/25 sm:h-96 sm:w-96 sm:blur-[120px]" />
+      <div className="pointer-events-none absolute -bottom-32 -right-32 h-72 w-72 rounded-full bg-indigo-400/10 blur-[100px] dark:bg-indigo-500/25 sm:h-96 sm:w-96 sm:blur-[120px]" />
 
       <div className="relative mx-auto max-w-7xl">
         {/* Section header */}
-        <div className="mb-14 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+        <div className="mb-10 flex flex-col items-start justify-between gap-6 sm:mb-14 sm:flex-row sm:items-end">
           <div>
-            <span className="mb-3 inline-block rounded-full border border-indigo-400/20 bg-indigo-500/10 px-4 py-1 text-xs font-medium tracking-wide text-indigo-300">
+            <span className="mb-3 inline-block rounded-full border border-indigo-400/30 bg-indigo-500/10 px-4 py-1 text-xs font-medium tracking-wide text-indigo-600 dark:border-indigo-400/20 dark:text-indigo-300">
               Happening Soon
             </span>
-            <h2 className="text-3xl font-semibold text-white sm:text-4xl">
+            <h2 className="text-2xl font-semibold text-slate-900 dark:text-white sm:text-3xl md:text-4xl">
               Trending Events
             </h2>
-            <p className="mt-3 max-w-md text-sm text-slate-400 sm:text-base">
+            <p className="mt-3 max-w-md text-sm text-slate-600 dark:text-slate-400 sm:text-base">
               The events people in your city are grabbing tickets for right now.
             </p>
           </div>
 
-          <button className="group inline-flex items-center gap-2 text-sm font-medium text-indigo-300 transition hover:text-indigo-200">
+          <button className="group inline-flex items-center gap-2 text-sm font-medium text-indigo-600 transition hover:text-indigo-500 dark:text-indigo-300 dark:hover:text-indigo-200">
             View all events
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </button>
@@ -103,23 +103,24 @@ export default function FeaturedEvents() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
+          className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         >
           {events.map((event) => (
             <motion.article
               key={event.id}
               variants={cardVariants}
               whileHover={{ y: -6 }}
-              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl transition-colors hover:border-indigo-400/30"
+              className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-indigo-50 backdrop-blur-xl transition-colors hover:border-indigo-400/40 dark:border-indigo-400/10 dark:bg-indigo-500/6 dark:hover:border-indigo-400/30"
             >
               {/* Image */}
-              <div className="relative h-44 w-full overflow-hidden">
+              <div className="relative h-40 w-full overflow-hidden sm:h-44">
                 <img
                   src={event.image}
                   alt={event.title}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-white/90 via-white/10 to-transparent dark:from-[#0B0F2E]/90 dark:via-[#0B0F2E]/10" />
 
                 {event.trending && (
                   <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-indigo-500/90 px-2.5 py-1 text-[11px] font-medium text-white shadow-lg shadow-indigo-500/30">
@@ -128,33 +129,33 @@ export default function FeaturedEvents() {
                   </span>
                 )}
 
-                <span className="absolute right-3 top-3 rounded-full border border-white/20 bg-slate-950/60 px-2.5 py-1 text-[11px] font-medium text-slate-200 backdrop-blur-sm">
+                <span className="absolute right-3 top-3 rounded-full border border-slate-300 bg-white/70 px-2.5 py-1 text-[11px] font-medium text-slate-700 backdrop-blur-sm dark:border-indigo-400/20 dark:bg-[#0B0F2E]/60 dark:text-slate-200">
                   {event.category}
                 </span>
               </div>
 
               {/* Content */}
-              <div className="space-y-3 p-5">
-                <h3 className="text-base font-semibold text-white line-clamp-1">
+              <div className="space-y-3 p-4 sm:p-5">
+                <h3 className="text-sm font-semibold text-slate-900 line-clamp-1 dark:text-white sm:text-base">
                   {event.title}
                 </h3>
 
-                <div className="space-y-1.5 text-xs text-slate-400">
+                <div className="space-y-1.5 text-xs text-slate-600 dark:text-slate-400">
                   <div className="flex items-center gap-2">
-                    <Calendar className="h-3.5 w-3.5 text-indigo-400" />
-                    {event.date}
+                    <Calendar className="h-3.5 w-3.5 shrink-0 text-indigo-500 dark:text-indigo-400" />
+                    <span className="truncate">{event.date}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <MapPin className="h-3.5 w-3.5 text-indigo-400" />
+                    <MapPin className="h-3.5 w-3.5 shrink-0 text-indigo-500 dark:text-indigo-400" />
                     <span className="line-clamp-1">{event.location}</span>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between pt-2">
-                  <span className="text-sm font-semibold text-white">
+                <div className="flex items-center justify-between gap-2 pt-2">
+                  <span className="text-sm font-semibold text-slate-900 dark:text-white">
                     {event.price}
                   </span>
-                  <button className="rounded-full bg-indigo-500 px-4 py-1.5 text-xs font-medium text-white transition hover:bg-indigo-400">
+                  <button className="rounded-full bg-indigo-500 px-3.5 py-1.5 text-xs font-medium text-white transition hover:bg-indigo-400 sm:px-4">
                     Buy Ticket
                   </button>
                 </div>
