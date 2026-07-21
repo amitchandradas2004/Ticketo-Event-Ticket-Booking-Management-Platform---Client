@@ -6,8 +6,6 @@ import {
   Form,
   InputGroup,
   Label,
-  ListBox,
-  Select,
   TextField,
 } from "@heroui/react";
 import { motion } from "framer-motion";
@@ -15,48 +13,20 @@ import { Eye } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { BsEyeSlash } from "react-icons/bs";
-import { FaCamera, FaEnvelope, FaLock, FaUser } from "react-icons/fa";
+import { FaEnvelope, FaLock } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 
-export default function SignUpPage() {
-  const [image, setImage] = useState(null);
+export default function LoginPage() {
   const [isVisible, setIsVisible] = useState(false);
-  const [role, setRole] = useState("attendee");
+
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData.entries());
 
-    console.log(user, "userdata");
-
-    // const uploadedImage = await imageUpload(user.image);
-    // const plan = role === "collaborator" ? "collaborator_free" : "founder_free";
-    // const status = role === "collaborator" ? "active" : "active";
-    // const plan = "free";
-    // const status = "active";
-
-    // const { data, error } = await authClient.signUp.email({
-    //   ...user,
-    //   image: uploadedImage.url,
-    //   role,
-    //   plan,
-    //   status,
-    // });
-
-    // if (data) {
-    //   toast.success(`${user.name} account created successfully`);
-    //   redirect("/");
-    // }
-
-    // if (error) {
-    //   toast.error(error?.message);
-    // }
+    console.log(user, "login data");
+    // Handle authClient.signIn.email or other authentication logic here
   };
-  // const handleGoogleSignIn = async () => {
-  //   const data = await authClient.signUp.social({
-  //     provider: "google",
-  //   });
-  // };
 
   const container = {
     hidden: {},
@@ -96,24 +66,11 @@ export default function SignUpPage() {
         border border-white/30 dark:border-slate-700"
       >
         {/* TITLE */}
-        <motion.h1 variants={fadeUp} className="text-2xl font-bold text-center">
-          Create your account
+        <motion.h1 variants={fadeUp} className="text-2xl font-bold text-center mb-6">
+          Sign in to your account
         </motion.h1>
         <Form onSubmit={onSubmit}>
           <Fieldset.Group className="space-y-4">
-            {/* NAME */}
-            <motion.div variants={fadeUp}>
-              <TextField isRequired name="name" type="text">
-                <Label>Name</Label>
-                <InputGroup className="rounded-full overflow-hidden">
-                  <InputGroup.Prefix>
-                    <FaUser />
-                  </InputGroup.Prefix>
-                  <InputGroup.Input placeholder="John Doe" />
-                </InputGroup>
-              </TextField>
-            </motion.div>
-
             {/* EMAIL */}
             <motion.div variants={fadeUp}>
               <TextField isRequired name="email" type="email">
@@ -147,43 +104,6 @@ export default function SignUpPage() {
                 </InputGroup>
               </TextField>
             </motion.div>
-
-            {/* ROLE */}
-            <motion.div variants={fadeUp}>
-              <Select
-                isRequired
-                name="role"
-                placeholder="Select one"
-                onChange={(value) => setRole(value)}
-              >
-                <Label>Signup As</Label>
-
-                <Select.Trigger className="rounded-full">
-                  <span className="mr-2">👤</span>
-                  <Select.Value />
-                </Select.Trigger>
-
-                <Select.Popover className="rounded-3xl">
-                  <ListBox>
-                    <ListBox.Item id="attendee">Attendee</ListBox.Item>
-                    <ListBox.Item id="organizer">Organizer</ListBox.Item>
-                  </ListBox>
-                </Select.Popover>
-              </Select>
-            </motion.div>
-
-            {/* IMAGE */}
-            <motion.div variants={fadeUp}>
-              <TextField isRequired name="image" type="url">
-                <Label>Image</Label>
-                <InputGroup className="rounded-full overflow-hidden">
-                  <InputGroup.Prefix>
-                    <FaCamera />
-                  </InputGroup.Prefix>
-                  <InputGroup.Input placeholder="https://example.com/image.jpg" />
-                </InputGroup>
-              </TextField>
-            </motion.div>
           </Fieldset.Group>
 
           {/* BUTTON */}
@@ -193,16 +113,12 @@ export default function SignUpPage() {
             whileTap={{ scale: 0.98 }}
           >
             <Button type="submit" className="w-full mt-5 bg-indigo-600">
-              Signup
+              Login
             </Button>
           </motion.div>
         </Form>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        ></motion.div>
-        {/* OR DIVIDER (MATCH SIGNUP STYLE) */}
+
+        {/* OR DIVIDER */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -228,7 +144,6 @@ export default function SignUpPage() {
 
           <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
             <Button
-              // onClick={handleGoogleSignIn}
               className="w-full rounded-full border hover:bg-indigo-600 transition"
             >
               <FcGoogle size={20} />
@@ -236,11 +151,12 @@ export default function SignUpPage() {
             </Button>
           </motion.div>
         </motion.div>
+
         {/* FOOTER */}
         <motion.p variants={fadeUp} className="text-center text-sm mt-4">
-          Already have an account?{" "}
-          <Link href="/login" className="text-red-500">
-            Login
+          Don't have an account?{" "}
+          <Link href="/register" className="text-red-500">
+            Register
           </Link>
         </motion.p>
       </motion.div>
